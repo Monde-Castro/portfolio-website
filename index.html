@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Name - FNB App Academy Graduate</title>
+
+  <!-- Font Awesome for social and topic icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous"
+  />
+
+  <style>
+    /* Reset and base */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --apple-blue: #007aff;
+      --apple-blue-hover: #0051d5;
+      --apple-gray: #8e8e93;
+      --apple-gray-light: #f2f2f7;
+      --apple-gray-2: #aeafb2;
+      --apple-gray-3: #c7c7cc;
+      --apple-gray-4: #d1d1d6;
+      --apple-gray-5: #e5e5ea;
+      --apple-gray-6: #f2f2f7;
+      --apple-black: #1d1d1f;
+      --apple-white: #ffffff;
+      --apple-red: #ff3b30;
+      --apple-green: #34c759;
+      --apple-orange: #ff9500;
+      --apple-yellow: #ffcc00;
+      --apple-purple: #af52de;
+      --card-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+      --card-shadow-hover: 0 8px 32px rgba(0, 0, 0, 0.16);
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+        Helvetica, Arial, sans-serif;
+      background: var(--apple-white);
+      color: var(--apple-black);
+      line-height: 1.47059;
+      font-weight: 400;
+      letter-spacing: -0.022em;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-weight: 600;
+      letter-spacing: -0.003em;
+    }
+
+    /* Hero Header */
+
+    .header {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: 
+        linear-gradient(135deg, #fafafa77 100%, #f5f5f7 100%), 
+        url('images/background 2.jpg') center center/cover no-repeat;
+      position: relative;
+      overflow: hidden;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 40% 30%, rgba(0,122,255,0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 90%, rgba(52,199,89,0.1) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .header-content {
+      max-width: 980px;
+      padding: 0 22px;
+      z-index: 2;
+      position: relative;
+      width: 100%;
+    }
+
+    .header h1 {
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      line-height: 1.1;
+      color: var(--apple-white);
+      margin-bottom: 16px;
+      letter-spacing: -0.015em;
+      opacity: 0;
+      animation: fadeInUp 1.2s ease-out 0.3s forwards;
+    }
+
+    .header h2 {
+      font-size: clamp(1.25rem, 5vw, 2.5rem);
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--apple-gray);
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: fadeInUp 1.2s ease-out 0.6s forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Main Layout */
+
+    .main-content {
+      display: block; /* base for mobile */
+    }
+
+    /* Left Panel */
+
+    .left-panel {
+      background: var(--apple-gray-6);
+      padding: 2rem 1.5rem;
+      border-right: none;
+      border-bottom: 1px solid var(--apple-gray-4);
+      position: relative;
+      height: auto;
+      overflow: visible;
+      max-width: 100%;
+      margin-bottom: 2rem;
+    }
+
+    .profile-section {
+      text-align: center;
+      margin-bottom: 44px;
+    }
+
+    .profile-image {
+      width: 60px;
+      height: 60px;
+      border-radius: 48px;
+      background: url("images/Monde-Modiba.jpg") no-repeat center center fixed;
+      margin: 0 auto 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      font-weight: 600;
+      color: var(--apple-white);
+      border: 3px solid var(--apple-white);
+      box-shadow: var(--card-shadow);
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .profile-image::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.6s ease;
+    }
+
+    .profile-image:hover::before {
+      left: 100%;
+    }
+
+    .profile-image:hover {
+      transform: scale(1.05);
+      box-shadow: var(--card-shadow-hover);
+    }
+
+    .name {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.003em;
+    }
+
+    .tagline {
+      font-size: 1rem;
+      line-height: 1.3;
+      color: var(--apple-gray);
+      font-weight: 400;
+    }
+
+    /* Social Section */
+
+    .social-section {
+      margin: 2rem 0 3rem;
+      text-align: center;
+    }
+
+    .section-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--apple-gray);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .social-links {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      max-width: 280px;
+      gap: 0.5rem;
+      margin: 0 auto;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      border: 0.5px solid var(--apple-gray-4);
+      background: var(--apple-white);
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+      overflow: hidden;
+      font-size: 18px;
+      aspect-ratio: 1 / 1;
+      margin: 0;
+    }
+
+    .social-link i {
+      color: var(--apple-gray);
+      transition: color 0.3s ease;
+    }
+
+    .social-link:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--card-shadow);
+      border-color: var(--apple-blue);
+      background: var(--apple-blue);
+    }
+
+    .social-link:hover i {
+      color: var(--apple-white);
+    }
+
+    /* Contact Section */
+
+    .contact-section {
+      margin: 2rem 0 3rem;
+    }
+
+    .email-form {
+      background: var(--apple-white);
+      border-radius: 16px;
+      padding: 1.5rem;
+      border: 0.5px solid var(--apple-gray-4);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .form-label {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--apple-black);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .email-input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--apple-gray-4);
+      border-radius: 10px;
+      background: var(--apple-white);
+      color: var(--apple-black);
+      font-size: 1rem;
+      line-height: 1.2;
+      font-family: inherit;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      margin-bottom: 1rem;
+    }
+
+    .email-input:focus {
+      outline: none;
+      border-color: var(--apple-blue);
+      box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+    }
+
+    .email-input::placeholder {
+      color: var(--apple-gray-2);
+    }
+
+    .email-btn {
+      width: 100%;
+      padding: 10px 0;
+      background: var(--apple-blue);
+      border: none;
+      border-radius: 10px;
+      color: var(--apple-white);
+      font-size: 1rem;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .email-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--apple-blue-hover);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .email-btn:hover::before {
+      opacity: 1;
+    }
+
+    .email-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);
+    }
+
+    .email-btn:active {
+      transform: scale(0.98);
+    }
+
+    /* About Section */
+
+    .about-section {
+      margin-top: 2rem;
+      padding: 0 1rem;
+    }
+
+    .about-text {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: var(--apple-gray);
+      background: var(--apple-white);
+      border-radius: 16px;
+      padding: 1.5rem;
+      border: 0.5px solid var(--apple-gray-4);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Right Panel */
+
+    .right-panel {
+      max-width: 100%;
+      height: auto;
+      padding: 2rem 1.5rem 3rem;
+      background: var(--apple-white);
+      overflow: visible;
+      scroll-behavior: smooth;
+    }
+
+    /* Sticky headings disabled on small screens */
+    .section-title {
+      position: static;
+      padding: 0;
+      border-bottom: none;
+      margin-bottom: 1rem;
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      max-width: 100%;
+      color: var(--apple-gray);
+      font-weight: 400;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 600px;
+    }
+
+    /* Expertise Grid / Topic Cards */
+
+    .topics-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin: 0 0 2rem 0;
+      padding: 0 1rem;
+    }
+
+    .topic-card {
+      background: var(--apple-white);
+      border: 0.5px solid var(--apple-gray-5);
+      border-radius: 14px;
+      padding: 20px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      margin: 0;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .topic-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(0, 122, 255, 0.03) 0%,
+        rgba(52, 199, 89, 0.02) 50%,
+        rgba(255, 149, 0, 0.02) 100%
+      );
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      border-radius: 14px;
+      pointer-events: none;
+    }
+
+    .topic-card:hover::before {
+      opacity: 1;
+    }
+
+    .topic-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--apple-gray-3);
+      box-shadow: var(--card-shadow-hover);
+    }
+
+    .topic-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .topic-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-right: 12px;
+      flex-shrink: 0;
+      color: var(--apple-white);
+    }
+
+    /* Each card gradient variant */
+    .topic-card:nth-child(1) .topic-icon {
+      background: linear-gradient(135deg, var(--apple-blue), var(--apple-purple));
+    }
+    .topic-card:nth-child(2) .topic-icon {
+      background: linear-gradient(135deg, var(--apple-green), var(--apple-blue));
+    }
+    .topic-card:nth-child(3) .topic-icon {
+      background: linear-gradient(135deg, var(--apple-orange), var(--apple-red));
+    }
+    .topic-card:nth-child(4) .topic-icon {
+      background: linear-gradient(135deg, var(--apple-purple), var(--apple-blue));
+    }
+    .topic-card:nth-child(5) .topic-icon {
+      background: linear-gradient(135deg, var(--apple-yellow), var(--apple-orange));
+    }
+    .topic-card:nth-child(6) .topic-icon {
+      background: linear-gradient(135deg, var(--apple-red), var(--apple-purple));
+    }
+    .topic-card:nth-child(7) .topic-icon {
+      background: linear-gradient(135deg, var(--apple-blue), var(--apple-green));
+    }
+    .topic-card:nth-child(8) .topic-icon {
+      background: linear-gradient(135deg, var(--apple-purple), var(--apple-red));
+    }
+    .topic-card:nth-child(9) .topic-icon {
+      background: linear-gradient(135deg, var(--apple-green), var(--apple-yellow));
+    }
+    .topic-card:nth-child(10) .topic-icon {
+      background: linear-gradient(135deg, var(--apple-orange), var(--apple-purple));
+    }
+
+    .topic-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      line-height: 1.18;
+      color: var(--apple-black);
+      margin-bottom: 0.25rem;
+      letter-spacing: -0.01em;
+    }
+
+    .topic-description {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: var(--apple-gray);
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .topic-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .skill-tag {
+      background: var(--apple-gray-6);
+      color: var(--apple-gray);
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+      border: 0.5px solid var(--apple-gray-4);
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      cursor: default;
+    }
+
+    .skill-tag:hover {
+      background: var(--apple-blue);
+      color: var(--apple-white);
+      border-color: var(--apple-blue);
+      transform: translateY(-1px);
+    }
+
+    /* Skills Section */
+
+    .skills-grid {
+      padding: 0 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      max-width: 100%;
+      justify-content: flex-start;
+    }
+
+.projects-scroll-container {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 12px;
+  margin: 0 auto 3rem auto;
+  max-width: 100%;
+}
+.projects-grid {
+  display: flex;
+  gap: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.project-card {
+  flex: 0 0 auto;
+  min-width: 320px;
+  max-width: 380px;
+  scroll-snap-align: start;
+  background: var(--apple-white);
+  border-radius: 16px;
+  box-shadow: var(--card-shadow);
+  border: 0.5px solid var(--apple-gray-5);
+  padding: 24px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.project-card:hover {
+  box-shadow: var(--card-shadow-hover);
+  border-color: var(--apple-blue);
+  transform: translateY(-6px);
+}
+.project-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--apple-black);
+  margin-bottom: 12px;
+}
+.project-description {
+  font-size: 1rem;
+  color: var(--apple-gray);
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+}
+.project-link {
+  color: var(--apple-blue);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1rem;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+.project-link:hover,
+.project-link:focus {
+  color: var(--apple-blue-hover);
+  text-decoration: underline;
+}
+/* Responsive: narrower min-width on small devices */
+@media (max-width: 600px) {
+  .project-card { min-width: 80vw; }
+}
+/* Optional: style horizontal scrollbar */
+.projects-scroll-container::-webkit-scrollbar {
+  height: 8px;
+}
+.projects-scroll-container::-webkit-scrollbar-thumb {
+  background: var(--apple-gray-4);
+  border-radius: 8px;
+}
+
+
+
+
+
+    /* Resume Section */
+
+    .tool-section {
+      margin: 3rem 1rem 3rem;
+      padding: 1rem;
+      border-radius: 14px;
+    }
+
+    .resume-tool {
+      text-align: center;
+      padding: 3.25rem;
+      background: var(--apple-gray-6);
+      border-radius: 16px;
+      border: 0.5px solid var(--apple-gray-4);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      max-width: 800px;
+      margin: 0 auto ;
+    }
+
+    .resume-tool p {
+      color: var(--apple-black);
+      font-size: 1.125rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .resume-btn {
+      background: var(--apple-blue);
+      color: var(--apple-white);
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      padding: 12px 0;
+      text-decoration: none;
+      box-shadow: var(--card-shadow);
+      transition: background 0.3s ease;
+      cursor: pointer;
+      display: inline-block;
+      width: 100%;
+      max-width: 320px;
+      margin: 0 auto;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .resume-btn:hover {
+      background: var(--apple-blue-hover);
+    }
+
+    /* Thank You Section */
+
+    .thank-you-card {
+      max-width: 95vw;
+      background: var(--apple-white);
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
+      box-shadow: var(--card-shadow);
+      text-align: center;
+      color: var(--apple-black);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+        Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      margin: 3rem auto 3rem auto;
+    }
+
+    .thank-you-card h2 {
+      font-size: clamp(1.75rem, 6vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 1rem;
+    }
+
+    .thank-you-card p {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      color: var(--apple-gray);
+    }
+
+    .contact-info-list {
+      list-style: none;
+      padding: 0 1rem;
+      margin: 0 auto;
+      max-width: 480px;
+      font-size: 1rem;
+    }
+
+    .contact-info-list li {
+      margin-bottom: 1rem;
+    }
+
+    .contact-info-list a {
+      color: var(--apple-blue);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .contact-info-list a:hover,
+    .contact-info-list a:focus {
+      color: var(--apple-blue-hover);
+      text-decoration: underline;
+    }
+
+    /* Contact Form Section */
+
+    .contact-form-section {
+      margin: 3rem 1rem;
+      max-width: 95vw;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .contact-form-section > .section-title {
+      position: static;
+      border-bottom: none;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-form {
+      background: var(--apple-gray-6);
+      padding: 1rem;
+      border-radius: 16px;
+      border: 0.5px solid var(--apple-gray-4);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      font-family: inherit;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .contact-row {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+      flex-direction: column; /* mobile first */
+    }
+
+    .contact-group {
+      flex: 1 1 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-label {
+      color: var(--apple-black);
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--apple-gray-4);
+      background: var(--apple-gray-6);
+      color: var(--apple-black);
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      resize: vertical;
+    }
+
+    .form-input {
+      resize: none;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--apple-blue);
+      box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+    }
+
+    .form-submit-btn {
+      width: 100%;
+      background: var(--apple-white);
+      color: var(--apple-black);
+      border-radius: 25px;
+      padding: 14px 0;
+      border: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      margin-top: 2rem;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+      transition: background 0.3s ease;
+      font-family: inherit;
+    }
+
+    .form-submit-btn:hover {
+      background: var(--apple-gray-5);
+    }
+
+    /* Scroll Animations */
+
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .fade-in-up.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Selection */
+
+    ::selection {
+      background: rgba(0, 122, 255, 0.2);
+    }
+
+    ::-moz-selection {
+      background: rgba(0, 122, 255, 0.2);
+    }
+
+    /*-------------------------
+      Medium Screens (Tablets)
+    -------------------------*/
+
+    @media screen and (min-width: 600px) {
+      .main-content {
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        gap: 24px;
+        min-height: 100vh;
+      }
+
+      .left-panel {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        padding: 3rem 2rem;
+        border-right: 1px solid var(--apple-gray-4);
+        overflow-y: auto;
+      }
+
+      .profile-image {
+        width: 112px;
+        height: 112px;
+        font-size: 42px;
+        border-width: 4px;
+      }
+
+      .right-panel {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 3rem 3rem 5rem;
+      }
+
+      .header {
+        height: 90vh;
+        padding: 4rem 3rem 6rem;
+        background-position: center center;
+      }
+
+      .social-links {
+        max-width: 320px;
+        gap: 1rem;
+      }
+
+      .topics-grid {
+        
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+        margin: 0 2rem 4rem;
+      }
+
+      .topic-card {
+        padding: 28px;
+        margin: 0;
+        border-radius: 18px;
+      }
+
+      .topic-icon {
+        width: 56px;
+        height: 56px;
+        font-size: 26px;
+        margin-right: 20px;
+      }
+
+      .skills-grid {
+        max-width: 90%;
+        justify-content: center;
+        padding: 0 2rem;
+      }
+
+      .contact-form-section,
+      .tool-section,
+      .thank-you-card {
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+  
+
+      .resume-btn {
+        max-width: 360px;
+      }
+
+      .contact-row {
+        flex-direction: row;
+        gap: 1rem;
+      }
+    }
+
+    /*-------------------------
+      Large Screens (Desktops)
+    -------------------------*/
+
+    @media screen and (min-width: 1068px) {
+      .main-content {
+        display: grid;
+        grid-template-columns: 375px 1fr;
+        gap: 40px;
+      }
+
+      .left-panel {
+        height: 100vh;
+        padding: 44px 32px;
+      }
+
+      .right-panel {
+        padding: 44px 32px 80px;
+      }
+
+      .section-title {
+        position: sticky;
+        top: -1;
+	
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header-content">
+      <h1>HI, I'M Monde Modiba</h1>
+      <h2>Passionate developer and strategic thinker with expertise in creating elegant solutions that solve real world problems.</h2>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <aside class="left-panel">
+      <div class="profile-section">
+        <div class="profile-image">MM</div>
+        <h2 class="name">Monde Modiba</h2>
+        <p class="tagline"> FULL-STACK DEVELOPER</p>
+      </div>
+
+      <div class="social-section">
+        <div class="section-label">Connect</div>
+        <div class="social-links">
+          <a
+            href="#"
+            class="social-link"
+            aria-label="YouTube"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i class="fab fa-youtube"></i
+          ></a>
+          <a
+            href="https://github.com/Monde-Castro?tab=repositories"
+            class="social-link"
+            aria-label="GitHub"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a
+            href="#"
+            class="social-link"
+            aria-label="TikTok"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i class="fab fa-tiktok"></i
+          ></a>
+          <a
+            href="#"
+            class="social-link"
+            aria-label="LinkedIn"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+          <a
+            href="#"
+            class="social-link"
+            aria-label="Instagram"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i class="fab fa-instagram"></i
+          ></a>
+        </div>
+      </div>
+
+      <div class="contact-section">
+        <div class="section-label">Get in Touch</div>
+        <form class="email-form"
+          action="https://formspree.io/f/myzpnjal"
+          method="POST"
+          novalidate>
+
+          <label class="form-label" for="email-sidebar">Email Address</label>
+          <input
+            id="email-sidebar"
+            type="email"
+	    name="email"
+            class="email-input"
+            placeholder="you@example.com"
+          />
+          <button type="button" class="email-btn"><span>Send Message</span></button>
+       
+     </form
+      </div>
+
+      <div class="about-section">
+        <div class="section-label">About</div>
+        <p class="about-text">
+          Passionate developer and strategic thinker with expertise in creating elegant solutions that
+          solve real problems. Recent FNB App Academy graduate specializing in full-stack development,
+          user experience design, and business strategy. Ready to leveraging
+ technology to solve real-world problems and contribute to community upliftment to build for the future, one pixel at a
+          time.
+        </p>
+      </div>
+    </aside>
+
+    <section class="right-panel">
+      
+      <h2 class="section-title">Expertise</h2>
+      <p class="section-subtitle">
+        An Overview of the knowledge and capabilities gained through the FNB App Academy
+        program
+      </p>
+
+      <div class="expertise-grid topics-grid">
+        
+
+        <div class="topic-card fade-in-up">
+          <div class="topic-header">
+            <div class="topic-icon"><i class="fas fa-mobile-alt"></i></div>
+            <div>
+              <h3 class="topic-title">App Strategy</h3>
+            </div>
+          </div>
+          <p class="topic-description">
+            Strategic thinking for app development, focusing on problem-solving, target market
+            identification, and unique value propositions for the African market.
+          </p>
+          <div class="topic-skills">
+            <span class="skill-tag">Market Research</span>
+            <span class="skill-tag">MVP Development</span>
+            <span class="skill-tag">Go-to-Market</span>
+            <span class="skill-tag">Monetization</span>
+          </div>
+        </div>
+
+               <div class="topic-card fade-in-up">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-dollar-sign"></i></div>
+                        <div>
+                            <h3 class="topic-title">Financial Literacy</h3>
+                        </div>
+                    </div>
+                    <p class="topic-description">
+                        Essential financial management skills including budgeting, savings strategies, 
+                        and digital banking for sustainable business growth.
+                    </p>
+                    <div class="topic-skills">
+                        <span class="skill-tag">Budgeting</span>
+                        <span class="skill-tag">Savings Planning</span>
+                        <span class="skill-tag">Digital Banking</span>
+                        <span class="skill-tag">Investment</span>
+                    </div>
+                </div>
+                <div class="topic-card fade-in-up">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fab fa-github"></i></div>
+                        <div>
+                            <h3 class="topic-title">GitHub & Collaboration</h3>
+                        </div>
+                    </div>
+                    <p class="topic-description">
+                        Advanced version control and collaborative development using modern Git workflows 
+                        and team management practices.
+                    </p>
+                    <div class="topic-skills">
+                        <span class="skill-tag">Git Version Control</span>
+                        <span class="skill-tag">Team Workflows</span>
+                        <span class="skill-tag">Code Review</span>
+                        <span class="skill-tag">CI/CD</span>
+                    </div>
+                </div>
+                <div class="topic-card fade-in-up">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-paint-brush"></i></div>
+                        <div>
+                            <h3 class="topic-title">UX Design</h3>
+                        </div>
+                    </div>
+                    <p class="topic-description">
+                        User-centered design principles and design thinking methodology to create 
+                        intuitive interfaces that deliver exceptional experiences.
+                    </p>
+                    <div class="topic-skills">
+                        <span class="skill-tag">User Research</span>
+                        <span class="skill-tag">Wireframing</span>
+                        <span class="skill-tag">Prototyping</span>
+                        <span class="skill-tag">Usability Testing</span>
+                    </div>
+                </div>
+                <div class="topic-card fade-in-up">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-database"></i></div> 
+                        <div>
+                            <h3 class="topic-title">Database Management</h3>
+                        </div>
+                    </div>
+                    <p class="topic-description">
+                        Smart database architecture and data analysis for decision-making, 
+                        personalization, and security in modern applications.
+                    </p>
+                    <div class="topic-skills">
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Data Modeling</span>
+                        <span class="skill-tag">Analytics</span>
+                        <span class="skill-tag">Security</span>
+                    </div>
+                </div>
+                <div class="topic-card fade-in-up">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-briefcase"></i></div>
+                        <div>
+                            <h3 class="topic-title">Business Development</h3>
+                        </div>
+                    </div>
+                    <p class="topic-description">
+                        Entrepreneurial mindset with focus on business planning, idea validation, 
+                        and building sustainable customer relationships.
+                    </p>
+                    <div class="topic-skills">
+                        <span class="skill-tag">Business Planning</span>
+                        <span class="skill-tag">Idea Validation</span>
+                        <span class="skill-tag">Customer Relations</span>
+                        <span class="skill-tag">Scaling</span>
+                    </div>
+                </div>
+                <div class="topic-card fade-in-up">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-cogs"></i></div>   
+                        <div>
+                            <h3 class="topic-title">Backend Development</h3>
+                        </div>
+                    </div>
+                    <p class="topic-description">
+                        Full-stack backend architecture using Python/Django, API development, 
+                        and scalable system design with security best practices.
+                    </p>
+                    <div class="topic-skills">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Django</span>
+                        <span class="skill-tag">REST APIs</span>
+                        <span class="skill-tag">Authentication</span>
+                    </div>
+                </div>
+               <div class="topic-card fade-in-up">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-robot"></i></div> 
+                        <div>
+                            <h3 class="topic-title">AI Development</h3>
+                        </div>
+                    </div>
+                    <p class="topic-description">
+                        Leveraging artificial intelligence tools for accelerated development, 
+                        code generation, debugging, and innovative problem-solving.
+                    </p>
+                    <div class="topic-skills">
+                        <span class="skill-tag">AI Tools</span>
+                        <span class="skill-tag">Code Generation</span>
+                        <span class="skill-tag">Automation</span>
+                        <span class="skill-tag">Machine Learning</span>
+                    </div>
+                </div>
+                <div class="topic-card fade-in-up">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-lightbulb"></i></div> 
+                        <div>
+                            <h3 class="topic-title">Business Funding</h3>
+                        </div>
+                    </div>
+                    <p class="topic-description">
+                        Understanding funding strategies from pre-seed to Series A+, 
+                        creating compelling pitch decks, and navigating venture capital.
+                    </p>
+                    <div class="topic-skills">
+                        <span class="skill-tag">Pitch Decks</span>
+                        <span class="skill-tag">Valuation</span>
+                        <span class="skill-tag">VC Relations</span>
+                        <span class="skill-tag">Term Sheets</span>
+                    </div>
+                </div>
+                <div class="topic-card fade-in-up">
+                    <div class="topic-header">
+                        <div class="topic-icon"><i class="fas fa-chart-line"></i></div> 
+                        <div>
+                            <h3 class="topic-title">Marketing Strategy</h3>
+                        </div>
+                    </div>
+                    <p class="topic-description">
+                        Comprehensive app marketing including user acquisition, viral loops, 
+                        and go-to-market strategies for sustainable growth.
+                    </p>
+                    <div class="topic-skills">
+                        <span class="skill-tag">Digital Marketing</span>
+                        <span class="skill-tag">User Acquisition</span>
+                        <span class="skill-tag">Growth Hacking</span>
+                        <span class="skill-tag">Analytics</span>
+                    </div>
+                </div>
+      </div>
+
+      <h2 class="section-title" style="margin-top: 3rem;">Skills</h2>
+      <p class="section-subtitle" style="margin-bottom: 2.5rem;">
+        Tools and technologies used throughout the program
+      </p>
+      <div class="skills-grid">
+        <span class="skill-tag">HTML</span>
+        <span class="skill-tag">CSS3</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">ReactJS</span>
+        <span class="skill-tag">Next.js</span>
+        <span class="skill-tag">Node.js</span>
+        <span class="skill-tag">Express</span>
+        <span class="skill-tag">MongoDB</span>
+        <span class="skill-tag">MERN Stack</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Django</span>
+        <span class="skill-tag">PostgreSQL</span>
+        <span class="skill-tag">Git</span>
+        <span class="skill-tag">Figma</span>
+        <span class="skill-tag">Docker</span>
+        <span class="skill-tag">VS Code</span>
+        <span class="skill-tag">AI Automation</span>
+        <span class="skill-tag">N8N</span>
+        <span class="skill-tag">Zapier</span>
+        <span class="skill-tag">REST APIs</span>
+        <span class="skill-tag">CI/CD</span>
+        <span class="skill-tag">Automation</span>
+      </div>
+
+<h2 class="section-title" style="margin-top: 4rem;">My Projects</h2>
+<p class="section-subtitle" style="margin-bottom: 2.5rem;">
+  A showcase of personal and professional projects demonstrating my skills and creativity.
+</p>
+
+<div class="projects-scroll-container">
+  <div class="projects-grid">
+    <div class="project-card fade-in-up">
+      <h3 class="project-title">FNB App Academy Mock Website</h3>
+      <a href="https://https://github.com/Monde-Castro/-Computer-Sales" target="_blank" rel="noopener noreferrer" aria-label="GitHub Repository" class="topic-github-link">
+        <i class="fab fa-github"></i>
+      </a>
+      <p class="project-description">
+        A mobile-first budgeting app built with React and Django; uses Machine Learning to give users personalized saving tips. Integrated with OpenAI for smart insights.
+      </p>
+      <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+    </div>
+    <div class="project-card fade-in-up">
+      <h3 class="project-title">My Portfolio Website</h3>
+      <a href="https://github.com/your-repo" target="_blank" rel="noopener noreferrer" aria-label="GitHub Repository" class="topic-github-link">
+        <i class="fab fa-github"></i>
+      </a>
+<p class="project-description">
+        Real-time collaboration platform for small teams. Features live chat (Socket.io), file sharing, and task boards (React, Node.js, MongoDB). Deployed via Docker.
+      </p>
+      <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+    </div>
+    <div class="project-card fade-in-up">
+      <h3 class="project-title">Mobile-Clinic</h3>
+      <a href="https://github.com/Monde-Castro/Mobile-Clinic" target="_blank" rel="noopener noreferrer" aria-label="GitHub Repository" class="topic-github-link">
+        <i class="fab fa-github"></i>
+      </a>
+
+<p class="project-description">
+       If the radio button for Cancer is checked, the user enters the Scan Fee in the txtConsultation text box. If the Scan Fee is greater than R600, a message must be displayed Sorry we cannot treat you.…
+      </p>
+      <a href="https://github.com/Monde-Castro/Mobile-Clinic" class="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+    </div>
+    <div class="project-card fade-in-up">
+      <h3 class="project-title">Currency-Converter</h3>
+      <a href="https://github.com/Monde-Castro/Currency-Converter" target="_blank" rel="noopener noreferrer" aria-label="GitHub Repository" class="topic-github-link">
+        <i class="fab fa-github"></i>
+      </a>
+      <p class="project-description">
+        This program will be able to accept any Amount in South African Rand – ZAR as input and convert it to the desired currency. To do this conversion the program must multiply the Amount (ZAR) with the…
+      </p>
+      <a href="https://github.com/Monde-Castro/Currency-Converter"  class="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+    </div>
+    <div class="project-card fade-in-up">
+      <h3 class="project-title">Assessment-Record</h3>
+      <a href="https://github.com/Monde-Castro/Assessment-Record" target="_blank" rel="noopener noreferrer" aria-label="GitHub Repository" class="topic-github-link">
+        <i class="fab fa-github"></i>
+      </a>
+      <p class="project-description">
+        This program will capture the Names, ICASS and ISAT Marks for students and will calculate the Average Mark for each student. The program will also calculate the Average for the whole class based on…
+      </p>
+      <a href="https://github.com/Monde-Castro/Assessment-Record"  class="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+    </div>
+
+<div class="project-card fade-in-up">
+      <h3 class="project-title">Body-Mass-Index</h3>
+      <a href="https://https://github.com/Monde-Castro/Body-Mass-Index" target="_blank" rel="noopener noreferrer" aria-label="GitHub Repository" class="topic-github-link">
+        <i class="fab fa-github"></i>
+      </a>
+      <p class="project-description">
+        This program will be able to accept any Amount in South African Rand – ZAR as input and convert it to the desired currency. To do this conversion the program must multiply the Amount (ZAR) with the…
+      </p>
+      <a href="https://github.com/Monde-Castro/Body-Mass-Index"  class="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+    </div>
+
+  </div>
+</div>
+
+
+
+      <!-- My Resume Section -->
+      <h2 class="section-title" style="margin-top: 3rem;">CV/Resume</h2>
+      <div class="tool-section">
+        <div class="resume-tool">
+          <p>
+            Need my credentials offline? Download my professional cv/resume as a PDF.
+          </p>
+          <a
+            href="assets/Monde Modiba Professional CV Resume.pdf"
+            class="resume-btn"
+            target="_blank"
+            download
+            >Download Resume</a
+          >
+        </div>
+      </div>
+
+      <!-- Thank You Section -->
+      <h2 class="section-title" style="margin-top: 80px;">Thank You</h2>
+      <div class="thank-you-card">
+        <h2>Thank You! For Watching</h2>
+        <p>For visiting my portfolio. Let’s build something amazing together.</p>
+        <p>If you'd like to get in touch directly, feel free to reach out:</p>
+        
+      </div>
+
+      <!-- Contact Form Section -->
+
+      <section class="contact-form-section">
+      <h2 class="section-title" style="margin-top: 80px;">Get in Touch Today</h2>
+        
+        <form
+          class="contact-form"
+          action="https://formspree.io/f/myzpnjal"
+          method="POST"
+          novalidate
+        >
+          <input type="hidden" name="_captcha" value="false" />
+          <div class="contact-row">
+            <div class="contact-group">
+              <label for="name" class="form-label">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Anton Elikas"
+                class="form-input"
+                required
+              />
+            </div>
+            <div class="contact-group">
+              <label for="email" class="form-label">E-mail</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="anton.fil@mail.com"
+                class="form-input"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="contact-group">
+            <label for="message" class="form-label">Leave us a message</label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Please type your message here…"
+              rows="5"
+              class="form-textarea"
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit" class="form-submit-btn">Send message</button>
+        </form>
+      </section>
+    </section>
+  </main>
+
+  <!-- JavaScript for fade-in animations inside right-panel -->
+  <script>
+    const fadeIns = document.querySelectorAll('.fade-in-up');
+    const rightPanel = document.querySelector('.right-panel');
+
+    function handlePanelScroll() {
+      const panelRect = rightPanel.getBoundingClientRect();
+      fadeIns.forEach((el) => {
+        const elRect = el.getBoundingClientRect();
+        if (elRect.top < panelRect.bottom - 100) {
+          el.classList.add('animate');
+        }
+      });
+    }
+    rightPanel.addEventListener('scroll', handlePanelScroll);
+    window.addEventListener('load', handlePanelScroll);
+
+
+
+  const fadeProjectCards = document.querySelectorAll('.projects-grid .fade-in-up');
+  const projectsContainer = document.querySelector('.projects-scroll-container');
+  function checkProjectFadeIn() {
+    const rect = projectsContainer.getBoundingClientRect();
+    fadeProjectCards.forEach(card => {
+      const cardRect = card.getBoundingClientRect();
+      if (cardRect.left < rect.right - 100) {
+        card.classList.add('animate');
+      }
+    });
+  }
+  projectsContainer.addEventListener('scroll', checkProjectFadeIn);
+  window.addEventListener('load', checkProjectFadeIn);
+  </script>
+</body>
+</html>
