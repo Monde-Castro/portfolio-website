@@ -30,7 +30,7 @@ The website is deployed via GitHub Pages:
 
 - Go to your repository’s Settings > Pages to enable hosting
 - Choose the main branch and root directory
-- Access your portfolio at `https://<yourusername>.github.io/<repo>/`
+- Access your portfolio at `https://monde-castro.github.io/portfolio-website/`
 
 ## Customization
 
@@ -42,7 +42,7 @@ The website is deployed via GitHub Pages:
 
 For questions or collaboration, use the contact form on the site or reach me at:
 
-- Email: mondeeumodba@.com  
+- Email: mondeeumodba@gmail.com  
 
 ---
 
